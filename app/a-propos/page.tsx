@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import FounderCard from "@/components/FounderCard";
 
 export const metadata: Metadata = {
   title: "À propos — Pourquoi Altis Strategy existe",
@@ -101,65 +102,24 @@ export default function AProposPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            {/* Vincent */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8">
-              <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center mb-5">
-                <span className="text-ochre font-black text-xl">VG</span>
-              </div>
-              <h3 className="text-xl font-black text-navy mb-0.5">Vincent Godbille</h3>
-              <p className="text-xs text-ochre font-semibold uppercase tracking-widest mb-4">
-                Associé
-              </p>
-
-              {/* Bio placeholder */}
-              <div className="space-y-2 mb-5">
-                <div className="h-4 bg-navy/5 rounded w-full" />
-                <div className="h-4 bg-navy/5 rounded w-5/6" />
-                <div className="h-4 bg-navy/5 rounded w-4/5" />
-                <div className="h-4 bg-navy/5 rounded w-3/4" />
-              </div>
-              <p className="text-xs text-muted italic mb-5">
-                Fort d'un parcours tourné vers l'international et l'entrepreneuriat, Vincent apporte à Altis Strategy une vision pragmatique et terrain de l'économie globale. Actuellement basé à Bakou, hub énergétique majeur, il se spécialise dans le négoce de matières premières (Commodity Trading) et le financement du commerce international à la HEG Genève.Son expertise repose sur une maîtrise rigoureuse de la chaîne logistique et de l'optimisation des marges, éprouvée par la fondation d'une entreprise d'e-commerce rentable et une expérience solide en gestion de portefeuille client en Indonésie. Expert sur Bloomberg et les outils de modélisation Excel, Vincent analyse les flux mondiaux pour transformer des données complexes en opportunités stratégiques concrètes.
-              </p>
-
-              <a
-                href="mailto:vincent.godbille@he-arc.ch"
-                className="flex items-center gap-2 text-sm text-muted hover:text-navy transition-colors"
-              >
-                <Mail size={14} />
-                vincent.godbille@he-arc.ch
-              </a>
-            </div>
-
-            {/* Simon */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8">
-              <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center mb-5">
-                <span className="text-ochre font-black text-xl">SS</span>
-              </div>
-              <h3 className="text-xl font-black text-navy mb-0.5">Simon Schaer</h3>
-              <p className="text-xs text-ochre font-semibold uppercase tracking-widest mb-4">
-                Associé
-              </p>
-
-              {/* Bio placeholder */}
-              <div className="space-y-2 mb-5">
-                <div className="h-4 bg-navy/5 rounded w-full" />
-                <div className="h-4 bg-navy/5 rounded w-5/6" />
-                <div className="h-4 bg-navy/5 rounded w-4/5" />
-                <div className="h-4 bg-navy/5 rounded w-3/4" />
-              </div>
-              <p className="text-xs text-muted italic mb-5">
-                Spécialiste de la finance d’entreprise diplômé de l'Université de Saint-Gall (HSG), Simon se distingue par sa capacité à décrypter la valeur intrinsèque des entreprises. Son expérience en audit chez EY pour le groupe Nestlé lui a conféré une rigueur analytique exceptionnelle dans l'interprétation des données financières complexes.Investisseur actif, il a développé des modèles d’évaluation avancés (ReOI/Penman) intégrant l’intelligence artificielle pour surperformer les indices de marché. Au sein d'Altis Strategy, Simon combine ses compétences en gestion des risques et en finance quantitative pour produire des rapports financiers de haute précision, permettant une prise de décision éclairée et stratégique.
-              </p>
-
-              <a
-                href="mailto:schaersimon@gmail.com"
-                className="flex items-center gap-2 text-sm text-muted hover:text-navy transition-colors"
-              >
-                <Mail size={14} />
-                schaersimon@gmail.com
-              </a>
-            </div>
+            <FounderCard
+              name="Vincent Godbille"
+              initials="VG"
+              role="Cofondateur — Méthodologie & Data"
+              email="vincent.godbille@he-arc.ch"
+              emailHref="mailto:vincent.godbille@he-arc.ch"
+              photo="/vincent.jpg"
+              bio="Fort d’un parcours tourné vers l’international et l’entrepreneuriat, Vincent apporte à Altis Strategy une vision pragmatique et terrain de l’économie globale. Actuellement basé à Bakou, il se spécialise dans le négoce de matières premières et le financement du commerce international à la HEG Genève. Expert sur Bloomberg et les outils de modélisation Excel, il transforme des données complexes en opportunités stratégiques concrètes."
+            />
+            <FounderCard
+              name="Simon Schaer"
+              initials="SS"
+              role="Cofondateur — Stratégie & Relation client"
+              email="schaersimon@gmail.com"
+              emailHref="mailto:schaersimon@gmail.com"
+              photo="/simon.jpg"
+              bio="Spécialiste de la finance d’entreprise diplômé de l’Université de Saint-Gall (HSG), Simon décrypte la valeur intrinsèque des entreprises avec une rigueur forgée en audit chez EY pour le groupe Nestlé. Investisseur actif, il a développé des modèles d’évaluation avancés intégrant l’IA. Chez Altis Strategy, il combine gestion des risques et finance quantitative pour produire des rapports de haute précision."
+            />
           </div>
 
           {/* Closing */}

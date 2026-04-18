@@ -14,6 +14,7 @@ const offres = [
     badge: "Qualification rapide",
     title: "Rapport Flash",
     subtitle: "Pour qualifier un prospect avant un premier RDV.",
+    price: "300",
     pages: "6 pages",
     delai: "24 à 48 h",
     features: [
@@ -31,6 +32,7 @@ const offres = [
     badge: "Cœur de gamme",
     title: "Rapport Stratégique",
     subtitle: "Pour un compte-clé, un appel d'offres, une négociation contrat-cadre.",
+    price: "500",
     pages: "12 à 15 pages",
     delai: "48 à 72 h",
     features: [
@@ -51,6 +53,7 @@ const offres = [
     badge: "Volume & pipeline",
     title: "Sourcing sectoriel",
     subtitle: "Pour construire une liste de prospects qualifiés sur un secteur + géographie.",
+    price: "650",
     pages: "Mini-fiche 2 pages / entreprise",
     delai: "5 à 10 jours ouvrés",
     features: [
@@ -126,6 +129,21 @@ export default function OffresPage() {
                 >
                   {offre.subtitle}
                 </p>
+
+                {/* Prix */}
+                <div className={`mb-5 pb-5 border-b ${offre.highlight ? "border-white/10" : "border-slate-200"}`}>
+                  <div className="flex items-baseline gap-1">
+                    <span className={`text-4xl font-black font-mono tabular-nums ${offre.highlight ? "text-ochre" : "text-navy"}`}>
+                      {offre.price} €
+                    </span>
+                    <span className={`text-xs ${offre.highlight ? "text-white/40" : "text-muted"}`}>
+                      / rapport
+                    </span>
+                  </div>
+                  <p className={`text-xs mt-1 ${offre.highlight ? "text-white/40" : "text-muted"}`}>
+                    Tarif dégressif à partir du 3ᵉ rapport.
+                  </p>
+                </div>
 
                 {/* Metadata */}
                 <div className="flex gap-4 mb-6">

@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import ReportMockup from "@/components/ReportMockup";
 import DownloadModal from "@/components/DownloadModal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 // FAQ data
 const faqs = [
@@ -105,20 +107,11 @@ export default function HomePage() {
               </button>
             </div>
 
-            {/* Trust indicators */}
-            <div className="mt-12 flex flex-wrap gap-6">
-              {[
-                { num: "48h", label: "délai standard" },
-                { num: "12", label: "ratios analysés" },
-                { num: "5 ans", label: "d'historique" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-black text-ochre font-mono tabular-nums">
-                    {stat.num}
-                  </div>
-                  <div className="text-xs text-white/50 mt-0.5">{stat.label}</div>
-                </div>
-              ))}
+            {/* Trust indicators — animated counters */}
+            <div className="mt-12 flex flex-wrap gap-8">
+              <AnimatedCounter value="48" suffix="h" label="délai standard" />
+              <AnimatedCounter value="12" suffix="" label="ratios analysés" />
+              <AnimatedCounter value="5" suffix=" ans" label="d'historique" />
             </div>
           </div>
 
@@ -187,14 +180,16 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-            {deliverables.map((item) => (
-              <div key={item.title} className="card group">
+            {deliverables.map((item, i) => (
+              <RevealOnScroll key={item.title} delay={i * 80}>
+              <div className="card group h-full">
                 <div className="w-10 h-10 bg-navy/5 rounded-lg flex items-center justify-center mb-4 group-hover:bg-ochre/10 transition-colors">
                   <item.icon className="w-5 h-5 text-navy group-hover:text-ochre transition-colors" />
                 </div>
                 <h3 className="font-bold text-navy mb-1 text-sm">{item.title}</h3>
                 <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
               </div>
+              </RevealOnScroll>
             ))}
           </div>
 

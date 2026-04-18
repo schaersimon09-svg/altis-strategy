@@ -43,7 +43,7 @@ export default function Header() {
             </div>
             <span
               className={`font-bold text-base tracking-tight transition-colors ${
-                scrolled ? "text-navy" : "text-navy"
+                scrolled ? "text-navy" : "text-white"
               }`}
             >
               Altis Strategy
@@ -58,8 +58,12 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-150 ${
                   pathname === link.href
-                    ? "text-navy border-b-2 border-ochre pb-0.5"
-                    : "text-muted hover:text-navy"
+                    ? scrolled
+                      ? "text-navy border-b-2 border-ochre pb-0.5"
+                      : "text-white border-b-2 border-ochre pb-0.5"
+                    : scrolled
+                    ? "text-muted hover:text-navy"
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -69,14 +73,18 @@ export default function Header() {
 
           {/* CTA desktop */}
           <div className="hidden md:flex">
-            <Link href="/contact" className="btn-primary text-xs px-5 py-2.5">
+            <Link href="/contact" className={`text-xs px-5 py-2.5 rounded font-semibold transition-all duration-150 ${
+              scrolled
+                ? "btn-primary"
+                : "bg-ochre text-white hover:bg-ochre-dark"
+            }`}>
               Demander un devis
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 rounded text-navy"
+            className={`md:hidden p-2 rounded ${scrolled ? "text-navy" : "text-white"}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-label="Menu"
