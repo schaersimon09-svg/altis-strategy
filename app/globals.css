@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0B1E33;
+  --ochre: #C9971A;
+  --ochre-light: #E8B830;
+  --offwhite: #F5F5F7;
+  --charcoal: #1A1A1A;
+  --muted: #64748B;
+  --border: #E2E8F0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--offwhite);
+    color: var(--charcoal);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-ochre text-white font-semibold text-sm tracking-wide rounded transition-all duration-150 hover:bg-ochre-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-navy text-navy font-semibold text-sm tracking-wide rounded transition-all duration-150 hover:bg-navy hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 cursor-pointer;
+  }
+
+  .btn-ghost-white {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white font-semibold text-sm tracking-wide rounded transition-all duration-150 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 cursor-pointer;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-ochre;
+  }
+
+  .stat-number {
+    @apply font-mono text-4xl font-bold text-ochre tabular-nums;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-slate-200 p-6 transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .dark-section {
+    @apply bg-navy text-white;
+  }
+}
+
+/* Grid texture for dark sections */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 2px;
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--navy);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Accordion animation */
+[data-state="open"] .accordion-content {
+  animation: slideDown 200ms ease-out;
+}
+[data-state="closed"] .accordion-content {
+  animation: slideUp 150ms ease-in;
+}
+
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+/* Report mockup tilt */
+.report-mockup {
+  transform: perspective(1000px) rotateY(-6deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+.report-mockup:hover {
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .report-mockup,
+  .report-mockup:hover {
+    transform: none;
+  }
+}

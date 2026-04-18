@@ -1,0 +1,181 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Mail } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "À propos — Pourquoi Altis Strategy existe",
+  description:
+    "Pourquoi Altis Strategy existe : rééquilibrer le rapport de force en RDV B2B grâce à une intelligence commerciale sourcée et vérifiable.",
+};
+
+export default function AProposPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-navy grid-texture pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <span className="section-label block mb-4">À propos</span>
+          <h1 className="text-4xl md:text-5xl font-black text-white max-w-2xl leading-tight mb-6">
+            Pourquoi Altis Strategy existe.
+          </h1>
+          <p className="text-lg text-white/60 max-w-xl leading-relaxed">
+            Parce que trop de RDV B2B se jouent encore sur l'intuition. Et que les
+            dirigeants et commerciaux de PME-ETI méritent mieux.
+          </p>
+        </div>
+      </section>
+
+      {/* Le constat */}
+      <section className="bg-offwhite py-20">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <span className="section-label block mb-4">Le constat</span>
+
+          <div className="flex flex-col gap-5 text-base text-charcoal leading-relaxed">
+            <p>
+              Quand on regarde comment la majorité des équipes commerciales préparent leurs
+              RDV, on remarque toujours le même scénario : un tour rapide sur LinkedIn, une
+              lecture du site corporate, et le commercial y va en espérant que ses questions
+              ouvrent la conversation.
+            </p>
+            <p>Ça marche encore. Un peu. De moins en moins.</p>
+            <p>
+              En face, les acheteurs sont mieux préparés qu'eux. Ils savent ce qu'ils veulent,
+              ils ont déjà regardé 3 concurrents, et ils n'ont pas de temps pour les questions
+              dont la réponse était dans le dernier rapport annuel.
+            </p>
+            <p className="font-semibold text-navy border-l-4 border-ochre pl-4 py-1">
+              Altis Strategy rééquilibre ce rapport de force.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Convictions */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="section-label">Notre parti-pris</span>
+            <h2 className="text-3xl font-black text-navy mt-3">Nos trois convictions</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                num: "01",
+                title: "La donnée publique française est un actif sous-exploité.",
+                body: "Liasses fiscales, Sirene, BODACC — tout est légalement accessible, et personne ne l'assemble.",
+              },
+              {
+                num: "02",
+                title: "L'intelligence commerciale n'est pas un luxe.",
+                body: "Elle devrait être aussi systématique qu'un CRM. Aucun commercial sérieux ne doit arriver en RDV sans savoir qui il a en face.",
+              },
+              {
+                num: "03",
+                title: "Un rapport sans sources vérifiables ne vaut rien.",
+                body: "Tout ce qu'on écrit est traçable. C'est la seule façon de construire de la confiance.",
+              },
+            ].map((conv) => (
+              <div key={conv.num} className="card border-t-4 border-t-ochre">
+                <div className="text-4xl font-black text-ochre/20 font-mono mb-4">
+                  {conv.num}
+                </div>
+                <h3 className="font-bold text-navy mb-2 text-sm leading-snug">
+                  {conv.title}
+                </h3>
+                <p className="text-xs text-muted leading-relaxed">{conv.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Équipe */}
+      <section className="bg-offwhite py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="section-label">L'équipe</span>
+            <h2 className="text-3xl font-black text-navy mt-3">
+              Un duo. Deux rôles complémentaires. Un standard commun.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {/* Vincent */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8">
+              <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center mb-5">
+                <span className="text-ochre font-black text-xl">VG</span>
+              </div>
+              <h3 className="text-xl font-black text-navy mb-0.5">Vincent Godbille</h3>
+              <p className="text-xs text-ochre font-semibold uppercase tracking-widest mb-4">
+                Associé
+              </p>
+
+              {/* Bio placeholder */}
+              <div className="space-y-2 mb-5">
+                <div className="h-4 bg-navy/5 rounded w-full" />
+                <div className="h-4 bg-navy/5 rounded w-5/6" />
+                <div className="h-4 bg-navy/5 rounded w-4/5" />
+                <div className="h-4 bg-navy/5 rounded w-3/4" />
+              </div>
+              <p className="text-xs text-muted italic mb-5">
+                Fort d'un parcours tourné vers l'international et l'entrepreneuriat, Vincent apporte à Altis Strategy une vision pragmatique et terrain de l'économie globale. Actuellement basé à Bakou, hub énergétique majeur, il se spécialise dans le négoce de matières premières (Commodity Trading) et le financement du commerce international à la HEG Genève.Son expertise repose sur une maîtrise rigoureuse de la chaîne logistique et de l'optimisation des marges, éprouvée par la fondation d'une entreprise d'e-commerce rentable et une expérience solide en gestion de portefeuille client en Indonésie. Expert sur Bloomberg et les outils de modélisation Excel, Vincent analyse les flux mondiaux pour transformer des données complexes en opportunités stratégiques concrètes.
+              </p>
+
+              <a
+                href="mailto:vincent.godbille@he-arc.ch"
+                className="flex items-center gap-2 text-sm text-muted hover:text-navy transition-colors"
+              >
+                <Mail size={14} />
+                vincent.godbille@he-arc.ch
+              </a>
+            </div>
+
+            {/* Simon */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8">
+              <div className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center mb-5">
+                <span className="text-ochre font-black text-xl">SS</span>
+              </div>
+              <h3 className="text-xl font-black text-navy mb-0.5">Simon Schaer</h3>
+              <p className="text-xs text-ochre font-semibold uppercase tracking-widest mb-4">
+                Associé
+              </p>
+
+              {/* Bio placeholder */}
+              <div className="space-y-2 mb-5">
+                <div className="h-4 bg-navy/5 rounded w-full" />
+                <div className="h-4 bg-navy/5 rounded w-5/6" />
+                <div className="h-4 bg-navy/5 rounded w-4/5" />
+                <div className="h-4 bg-navy/5 rounded w-3/4" />
+              </div>
+              <p className="text-xs text-muted italic mb-5">
+                Spécialiste de la finance d’entreprise diplômé de l'Université de Saint-Gall (HSG), Simon se distingue par sa capacité à décrypter la valeur intrinsèque des entreprises. Son expérience en audit chez EY pour le groupe Nestlé lui a conféré une rigueur analytique exceptionnelle dans l'interprétation des données financières complexes.Investisseur actif, il a développé des modèles d’évaluation avancés (ReOI/Penman) intégrant l’intelligence artificielle pour surperformer les indices de marché. Au sein d'Altis Strategy, Simon combine ses compétences en gestion des risques et en finance quantitative pour produire des rapports financiers de haute précision, permettant une prise de décision éclairée et stratégique.
+              </p>
+
+              <a
+                href="mailto:schaersimon@gmail.com"
+                className="flex items-center gap-2 text-sm text-muted hover:text-navy transition-colors"
+              >
+                <Mail size={14} />
+                schaersimon@gmail.com
+              </a>
+            </div>
+          </div>
+
+          {/* Closing */}
+          <div className="bg-navy rounded-2xl p-8 text-center max-w-2xl mx-auto">
+            <p className="text-white/80 italic leading-relaxed mb-6">
+              "On s'est associés parce que l'intelligence commerciale ne peut pas tenir sur
+              une seule paire d'yeux. Les chiffres sans la stratégie ne vendent rien. La
+              stratégie sans les chiffres vend du vent."
+            </p>
+            <Link href="/contact" className="btn-primary gap-2">
+              Prenons 30 minutes pour parler de vos cibles
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
